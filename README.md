@@ -37,7 +37,7 @@ O Objetivo central dessa abordagem é forneceruma metodologia a ser usada na cod
 
 ![image](https://user-images.githubusercontent.com/46346047/164737767-fb443512-9c02-457d-ad1b-5f8ba045b975.png)
 
-Como vantagens de utilizar uma arquitetura em camadas podemos pontuar:
+Algumas vantagens de utilizar uma arquitetura em camadas:
 
  - Testável. As regras de negócios podem ser testadas sem a interface do usuário, banco de dados, servidor ou qualquer outro elemento externo.
  
