@@ -32,4 +32,20 @@ Para acelerar o processo de gravação da transação na operação, é necessá
 Delegar autenticação a um provedor de identidade externa. Isso pode simplificar o desenvolvimento, minimizar a necessidade de administração de usuário
 
 # Arquitetura de software
+Para implementação das api's utilizaremos o conceito da "Clean Arquiteture" porposto por Robert Cecil Martin (“Uncle Bob”) promovida em seu livro Clean Architecture: A Craftsman’s Guide to Software Structure.
+O Objetivo central dessa abordagem é forneceruma metodologia a ser usada na codificação, a fim de facilitar o desenvolvimento códigos, permitir uma melhor manutenção, atualização e menos dependências, em outras palavras, é fornecer aos desenvolvedores uma maneira de organizar o código de forma que encapsule a lógica de negócios, mas mantenha-o separado do mecanismo de entrega.
+
+![image](https://user-images.githubusercontent.com/46346047/164737767-fb443512-9c02-457d-ad1b-5f8ba045b975.png)
+
+Como vantagens de utilizar uma arquitetura em camadas podemos pontuar:
+
+ - Testável. As regras de negócios podem ser testadas sem a interface do usuário, banco de dados, servidor ou qualquer outro elemento externo.
+ 
+ - Independente da interface do usuário. A interface do usuário pode mudar facilmente, sem alterar o restante do sistema. Uma UI da Web pode ser substituída por uma UI do console, por exemplo, sem alterar as regras de negócios.
+
+ - Independente de banco de dados. Você pode trocar o Oracle ou SQL Server, por Mongo, BigTable, CouchDB ou qualquer outro. Suas regras de negócios não estão vinculadas ao banco de dados.
+
+ - Independente de qualquer agente externo. Na verdade, suas regras de negócios simplesmente não sabem nada sobre o mundo exterior, não estão ligadas a nenhum Framework.
+
+ A separação de camadas poupará o desenvolvedor de muitos problemas futuros com a manutenção do software, a regra de dependência bem aplicada deixará o sistema completamente testável.
 
