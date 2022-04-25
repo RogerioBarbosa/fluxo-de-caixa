@@ -1,0 +1,55 @@
+services:
+ 
+  main_db:
+    image: 'postgres'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=pass123
+    networks:
+      - fluxo-de-caixa-network
+    
+  cassandra:
+    image: 'cassandra'
+    ports:
+      - '7000:7000'
+      - '7001:7001'
+      - '7199:7199'
+      - '9042'
+      - '9160'
+    networks:
+      - fluxo-de-caixa-network
+  
+  memory_db:
+    image: 'redis'
+    ports:
+      - '6379:6379'
+    networks:
+      - fluxo-de-caixa-network
+
+  rabbitmq:
+    image: 'rabbitmq:3-management'
+    ports:
+      - '4369:4369'
+      - '5671-5672:5671-5672'
+      - '15671-15672:15671-15672'
+      - '15691-15692:15691-15692'
+      - '25672:25672'
+      - '8080:8080'
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+      - fluxo-de-caixa-network
+  
+  gateway:
+    image: rogeriobarbosa:fluxo-de-caixa-gateway
+    ports:
+      - 3000:3000
+    depends_on:
+      - rabbitmq
+    networks:
+      - fluxo-de-caixa-network
+    
+networks:
+  fluxo-de-caixa-network:

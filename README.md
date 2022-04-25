@@ -48,6 +48,21 @@ Algumas vantagens de utilizar uma arquitetura em camadas:
  - Independente de qualquer agente externo. Na verdade, suas regras de negócios simplesmente não sabem nada sobre o mundo exterior, não estão ligadas a nenhum Framework.
 
  A separação de camadas poupará o desenvolvedor de muitos problemas futuros com a manutenção do software, a regra de dependência bem aplicada deixará o sistema completamente testável.
- 
- 
 
+Continua....
+
+ # Componentes e Aplicações
+ Para suportar todo o ambinete poroposta do modelo conceitual porposto foram definidos os segunites componetes:
+  - **Docker**, ambiente de conteiner para facilitar a instalação e testes locais das aplicações
+  - **Rabbit MQ**, Message broker utilizado na captura dos eventos do ecossistema
+  - **Postgres**, Banco de dados transacional usado na aplicação
+  - **Cassandra**, Banco de dados utilizado para modelos analíticos
+  - **REDIS**, Banco de dados em memoria para cache do saldo corrente
+  - **NodeJS(16)**, micro serviço para entrada das transações (gateway) - fluxo-de-caixa-gatway
+  - **Java**, Back end voltado a atulização do saldo e armazenamento das transações no banco Postgres (... TODO)
+  - **Python**, Geração de relatório analítico dasa transações diárias ralizadas (...TODO)
+
+  ## Criação do ambiente
+  Para criação do ambiente é necessário possuir o Docker e Docker Compose instalados e executar o comnado:
+   -  docker-compose -f docker-compose-fluxo-de-caixa.yml up -d
+   O comando irá baixar e configurar todo o ambiente para execussão das aplicações (**neste momento só estará disponível a captura da transação no gateway, demais serviçoes em construção**)
