@@ -67,4 +67,4 @@ Continua....
    -  docker-compose -f docker-compose-fluxo-de-caixa.yml up -d
    O comando irá baixar e configurar todo o ambiente para execussão das aplicações (**neste momento só estará disponível a captura da transação no gateway, demais serviçoes em construção**)
 
-   --- Existe um bug na subida dos serviços, onde mesmo colocando a relação de depnedência entre a aplicação e o broker, a aplicação ainda poderá subir antes do broker causano um erro de conexão, neste momnento trabalheremos com workaround de, caso o serviço não inicie, realizar um start manual usando docker start <<CONTAINER>> ou executando o mesmo comando inicial.
+   --Existe um bug na subida dos serviços, onde mesmo colocando a relação de depnedência entre a aplicação e o broker, a aplicação ainda poderá subir antes do broker causano um erro de conexão, neste momnento trabalheremos com workaround de, caso o serviço não inicie, realizar um start manual usando docker start <CONTAINER> ou executando o mesmo comando inicial.
