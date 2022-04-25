@@ -68,3 +68,20 @@ Continua....
    O comando irá baixar e configurar todo o ambiente para execussão das aplicações (**neste momento só estará disponível a captura da transação no gateway, demais serviçoes em construção**)
 
    --Existe um bug na subida dos serviços, onde mesmo colocando a relação de depnedência entre a aplicação e o broker, a aplicação ainda poderá subir antes do broker causano um erro de conexão, neste momnento trabalheremos com workaround de, caso o serviço não inicie, realizar um start manual usando docker start (CONTAINER) ou executando o mesmo comando inicial.
+
+## Execução da aplicação
+A aplicação pode ser acessada a partir de qualquer cliente que executem chamadas get/post, segue exemplo utilizando o comando curl:
+**Chamada simples para validar a aplicação**
+curl --location --request GET 'http://localhost:3000/about'
+
+**Inserir uma transação**
+curl --location --request POST 'http://localhost:3000/transaction' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "tipo" : "D",
+    "valor" : "100.00",
+    "device" : "caixa",
+    "datetime" : "2022-04-25T19:36:01"
+}'
+
+
